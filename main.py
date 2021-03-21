@@ -50,7 +50,7 @@ def loop():
     while True:
         distance = get_sonar()
         print(distance)
-        time.sleep(0.5)
+        time.sleep(0.01)
         '''
         if GPIO.input(pir_sensor_pin) == GPIO.HIGH:
             GPIO.output(led_green_pin, GPIO.HIGH)
