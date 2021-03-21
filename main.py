@@ -56,11 +56,12 @@ def loop():
                 GPIO.output(led_red_pin, GPIO.HIGH)
                 GPIO.output(led_green_pin, GPIO.LOW)
                 remote.send('off')
-                LIGHT_STATE = True
+                LIGHT_STATE = False
             else:
                 GPIO.output(led_red_pin, GPIO.HIGH)
                 GPIO.output(led_green_pin, GPIO.LOW)
                 remote.send('on')
+                LIGHT_STATE = True
             time.sleep(1.5)
       
 if  __name__ == '__main__':
