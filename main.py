@@ -5,6 +5,7 @@ import piir
 led_green_pin = 20
 led_red_pin = 16
 pir_sensor_pin = 23
+LIGHT_STATE = False
 
 remote = piir.Remote('light.json', 17)
 
