@@ -11,7 +11,6 @@ trig_pin = 5
 
 led_green_pin = 20
 led_red_pin = 16
-LIGHT_STATE = False
 
 remote = piir.Remote('light.json', 17)
 
@@ -47,22 +46,21 @@ def setup():
     GPIO.setup(trig_pin, GPIO.OUT)  
 
 def loop():
+    LIGHT_STATE = True
+
     while True:
         distance = get_sonar()
-        print(distance)
-        time.sleep(0.01)
-        '''
-        if GPIO.input(pir_sensor_pin) == GPIO.HIGH:
-            GPIO.output(led_green_pin, GPIO.HIGH)
-            GPIO.output(led_red_pin, GPIO.LOW)
-            if not LIGHT_STATE:
+        time.sleep(0.05)
+        if distance > 0 and distance < 10:
+            if LIGHT_STATE:
+                GPIO.output(led_red_pin, GPIO.HIGH)
+                GPIO.output(led_green_pin, GPIO.LOW)
                 remote.send('off')
-                LIGHT_STATE = True
-        else:
-            GPIO.output(led_red_pin, GPIO.HIGH)
-            GPIO.output(led_green_pin, GPIO.LOW)
-            LIGHT_STATE = False
-        '''
+            else:
+                GPIO.output(led_red_pin, GPIO.HIGH)
+                GPIO.output(led_green_pin, GPIO.LOW)
+                remote.send('on')
+            time.sleep(3)
       
 if  __name__ == '__main__':
     setup()
