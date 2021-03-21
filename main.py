@@ -51,7 +51,7 @@ def loop():
     while True:
         distance = get_sonar()
         time.sleep(0.05)
-        print(distance)
+        #print(distance)
         if distance > 0 and distance < 10:
             if LIGHT_STATE:
                 GPIO.output(led_red_pin, GPIO.HIGH)
