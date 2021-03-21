@@ -5,7 +5,7 @@ import piir
 led_green_pin = 20
 led_red_pin = 16
 pir_sensor_pin = 23
-LIGHT_STATE = False
+
 remote = piir.Remote('light.json', 17)
 
 def setup():
@@ -19,18 +19,20 @@ def setup():
 
 def loop():
     while True:
-        if GPIO.input(pir_sensor_pin) == GPIO.HIGH and not LIGHT_STATE:
+        if GPIO.input(pir_sensor_pin) == GPIO.HIGH:
             GPIO.output(led_green_pin, GPIO.HIGH)
             GPIO.output(led_red_pin, GPIO.LOW)
-            LIGHT_STATE = True
-            remote.send('off')
-
+            if not LIGHT_STATE:
+                remote.send('off')
+                LIGHT_STATE = True
         else:
             GPIO.output(led_red_pin, GPIO.HIGH)
             GPIO.output(led_green_pin, GPIO.LOW)
             LIGHT_STATE = False
+      
 
 if  __name__ == '__main__':
+    LIGHT_STATE = False
     setup()
     try:
         loop()
