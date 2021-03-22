@@ -115,6 +115,14 @@
     }
   ],
   "keys": {
+    "cool": [
+      "DA",
+      "7E"
+    ],
+    "normal": [
+      "6A",
+      "7E"
+    ],
     "off": [
       "08",
       {
@@ -129,16 +137,6 @@
         "data": "9A"
       }
     ],
-    "scene": [
-      {
-        "format": 2,
-        "data": "64"
-      },
-      {
-        "format": 2,
-        "data": "78"
-      }
-    ],
     "warm": [
       {
         "format": 3,
@@ -149,27 +147,7 @@
         "data": "DC"
       }
     ],
-    "normal": [
-      {
-        "format": 4,
-        "data": "84 51 6A 95"
-      },
-      {
-        "format": 4,
-        "data": "84 51 7E 81"
-      }
-    ],
-    "cool": [
-      {
-        "format": 4,
-        "data": "84 51 DA 25"
-      },
-      {
-        "format": 4,
-        "data": "84 51 7E 81"
-      }
-    ],
-    "scence": [
+    "scene": [
       {
         "format": 4,
         "data": "84 51 64 9B"
@@ -192,7 +170,7 @@
     "bright-1": [
       {
         "format": 4,
-        "data": "84 51 58 A7"
+        "data": "84 51 DA 25"
       },
       {
         "format": 4,
